@@ -28,6 +28,8 @@ public class ExpenseTrackerApp {
       double amount = view.getAmountField(); 
       String category = view.getCategoryField();
 
+      InputValidation.amountInputValidation(amount);
+
       // Create transaction object
       Transaction t = new Transaction(amount, category);
 
