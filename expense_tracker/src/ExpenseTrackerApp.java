@@ -1,4 +1,6 @@
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 /**
  * The ExpenseTrackerApp class allows users to add/remove daily transactions.
@@ -6,16 +8,14 @@ import javax.swing.table.DefaultTableModel;
 public class ExpenseTrackerApp {
 
   public static void main(String[] args) {
-    
+
     // Create MVC components
     DefaultTableModel tableModel = new DefaultTableModel();
     tableModel.addColumn("Serial");
     tableModel.addColumn("Amount");
     tableModel.addColumn("Category");
     tableModel.addColumn("Date");
-    
 
-    
     ExpenseTrackerView view = new ExpenseTrackerView(tableModel);
 
     // Initialize view
@@ -23,12 +23,16 @@ public class ExpenseTrackerApp {
 
     // Handle add transaction button clicks
     view.getAddTransactionBtn().addActionListener(e -> {
-      
+
       // Get transaction data from view
-      double amount = view.getAmountField(); 
+      double amount = view.getAmountField();
       String category = view.getCategoryField();
 
-      InputValidation.amountInputValidation(amount);
+      if (!InputValidation.amountInputValidation(amount)) {
+        JOptionPane.showMessageDialog(new JFrame(),
+            "Amount needs to be between 0 and 1000");
+        return;
+      }
 
       // Create transaction object
       Transaction t = new Transaction(amount, category);
