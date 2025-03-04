@@ -9,8 +9,15 @@ public class InputValidation {
     return false;
   }
 
-  public static boolean categoryInputValidation(double amount) {
+  public static boolean categoryInputValidation(String category) {
     System.out.println("Testing");
-    return true;
+    String[] validCategories = {"food", "travel", "bills", "entertainment", "other"};
+    
+    for (String validCategory : validCategories) {
+      if (validCategory.equals(category)) {
+        return true; 
+      }
+    }
+    return false; 
   }
 }

@@ -34,6 +34,12 @@ public class ExpenseTrackerApp {
         return;
       }
 
+      if (!InputValidation.categoryInputValidation(category)) {
+        JOptionPane.showMessageDialog(new JFrame(),
+            "Category needs to be in food, travel, bills, entertainment or other.");
+        return;
+      }
+
       // Create transaction object
       Transaction t = new Transaction(amount, category);
 
