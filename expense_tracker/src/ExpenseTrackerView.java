@@ -22,14 +22,17 @@ public class ExpenseTrackerView extends JFrame {
     return transactionsTable;
   }
 
-  public double getAmountField() {
-    if(amountField.getText().isEmpty()) {
-      return 0;
-    }else {
-    double amount = Double.parseDouble(amountField.getText());
-    return amount;
+public double getAmountField() {
+    try {
+        String input = amountField.getText();
+        if (input.isEmpty()) {
+            return 0; 
+        }
+        return Double.parseDouble(input);
+    } catch (NumberFormatException e) {
+        return 0;
     }
-  }
+}
 
   public void setAmountField(JTextField amountField) {
     this.amountField = amountField;
