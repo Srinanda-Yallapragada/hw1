@@ -40,3 +40,10 @@ Here are some examples of violating ```non-functional``` requirements:
 
 ## Understandibility
 For the understandability section, we will be inspecting your git log. You should include either the .git folder or else a gitLog.(pdf | txt).
+
+## Supported Features
+1. Expense amount tracking
+2. Expense category tracking
+3. Total Expense amount calculation
+4. Input validation of amount and category
+5. User alert when invalid amount or category is entered
